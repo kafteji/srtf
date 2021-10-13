@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        build:
+          - ubuntu-18.04
+          - ubuntu-20.04
+        include:
+          - build: ubuntu-18.04
+            os: ubuntu-18.04
+          - build: ubuntu-20.04
+            os: ubuntu-20.04
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Install packages (Ubuntu 18.04)
+        if: matrix.os == 'ubuntu-18.04'
+        run: |
+          ci/ubuntu-install-packages
+
+      - name: Install packages (Ubuntu)
+        if: matrix.os == 'ubuntu-20.04'
+        run: |
+          ci/ubuntu-install-packages
+
+      - name: Build
+        run: cargo build --release --verbose
+
+      - name: Test
+        run: cargo test --release --verbose

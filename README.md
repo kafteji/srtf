@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/kafteji/srtf.svg?branch=main)](https://travis-ci.com/kafteji/srtf)
+![example workflow](https://github.com/kafteji/srtf/actions/workflows/ci/badge.svg)
 
 # srtf
 A tool to fix arabic subtitles for smart TVs
