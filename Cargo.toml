@@ -1,0 +1,21 @@
+[package]
+name = "srtf"
+version = "0.1.0"
+edition = "2018"
+authors = ["Fahmi Ghediri <fahmi.gh@gmail.com>"]
+description = """
+srtf is a cli tool to fix and adapt subtitles in order to display them correctly
+on smart TVs that do not support arabic language.
+"""
+homepage = "https://github.com/kafteji/srtf"
+repository = "https://github.com/kafteji/srtf"
+categories = ["command-line-utilities", "text-processing"]
+license = "MIT"
+
+[dependencies]
+clap = "2.33"
+
+[dev-dependencies]
+
+[profile.release]
+debug = 1
