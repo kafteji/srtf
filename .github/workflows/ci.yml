@@ -30,12 +30,12 @@ jobs:
       - name: Install packages (Ubuntu 18.04)
         if: matrix.os == 'ubuntu-18.04'
         run: |
-          ci/ubuntu-install-packages
+          exec ci/ubuntu-install-packages.sh
 
       - name: Install packages (Ubuntu 20.04)
         if: matrix.os == 'ubuntu-20.04'
         run: |
-          ci/ubuntu-install-packages
+          exec ci/ubuntu-install-packages.sh
 
       - name: Build
         run: cargo build --release --verbose
