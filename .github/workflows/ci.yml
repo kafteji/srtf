@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         build:
@@ -32,7 +32,7 @@ jobs:
         run: |
           ci/ubuntu-install-packages
 
-      - name: Install packages (Ubuntu)
+      - name: Install packages (Ubuntu 20.04)
         if: matrix.os == 'ubuntu-20.04'
         run: |
           ci/ubuntu-install-packages
